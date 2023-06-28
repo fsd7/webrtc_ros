@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
 )
-find_package(webrtc REQUIRED)
+find_package(LibWebRTC REQUIRED)
 find_package(X11 REQUIRED)
 find_package(jsoncpp REQUIRED)
 
@@ -53,7 +53,7 @@ catkin_install_python(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-  ${webrtc_INCLUDE_DIRS}
+  ${LIBWEBRTC_USE_FILE}
 )
 add_definitions(${webrtc_DEFINITIONS})
 
@@ -90,7 +90,7 @@ add_library(${PROJECT_NAME}_server
 add_dependencies(${PROJECT_NAME}_server ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_server
   ${catkin_LIBRARIES}
-  ${webrtc_LIBRARIES}
+  ${LIBWEBRTC_LIBRARIES}
   ${X11_LIBRARIES}
   jsoncpp_object
 )
