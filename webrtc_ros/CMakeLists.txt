@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 find_package(LibWebRTC REQUIRED)
+include(${LIBWEBRTC_USE_FILE})
 find_package(X11 REQUIRED)
 find_package(jsoncpp REQUIRED)
 
@@ -53,7 +54,6 @@ catkin_install_python(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-  ${LIBWEBRTC_USE_FILE}
 )
 add_definitions(${webrtc_DEFINITIONS})
 
